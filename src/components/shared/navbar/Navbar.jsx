@@ -73,7 +73,7 @@ const Navbar = ({ open }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 w-full h-screen overflow-y-auto bg-[#1d1c1cd7] z-30 md:hidden transform transition-transform duration-500 ${
+        className={`fixed inset-0 w-full h-screen overflow-y-auto backdrop-blur bg-black/40 z-30 md:hidden transform transition-transform duration-500 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -90,7 +90,7 @@ const Navbar = ({ open }) => {
                   হাই স্বাগতম
                 </p>
               </div>
-              <div className="bg-yellow-400 py-4 px-4 flex gap-2 justify-between rounded-br-lg rounded-bl-lg">
+              <div className="bg-yellow-300 py-4 px-4 flex gap-2 justify-between rounded-br-lg rounded-bl-lg">
                 <div className="flex items-center gap-1">
                   <HiOutlineLogin />
                   <p className="text-sm font-medium text-black">লগ ইন</p>
@@ -105,7 +105,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-sport.svg"
                     alt=""
                   />
@@ -117,7 +117,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-casino.svg"
                     alt=""
                   />
@@ -129,7 +129,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-slot.svg"
                     alt=""
                   />
@@ -141,7 +141,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-table.svg"
                     alt=""
                   />
@@ -153,7 +153,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-crash.svg"
                     alt=""
                   />
@@ -165,7 +165,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg"
                     alt=""
                   />
@@ -177,7 +177,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg"
                     alt=""
                   />
@@ -189,7 +189,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-arcade.svg"
                     alt=""
                   />
@@ -201,7 +201,7 @@ const Navbar = ({ open }) => {
               <Link>
                 <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
                   <img
-                    className="w-6 m-auto"
+                    className="w-7 m-auto"
                     src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-cockfighting.svg"
                     alt=""
                   />
@@ -216,7 +216,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-promotion.svg"
                       alt=""
                     />
@@ -228,7 +228,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-download.svg"
                       alt=""
                     />
@@ -240,7 +240,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-affiliate.svg"
                       alt=""
                     />
@@ -252,7 +252,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-ambassador.svg"
                       alt=""
                     />
@@ -268,7 +268,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-telegram.svg"
                       alt=""
                     />
@@ -280,7 +280,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-whatsapp.svg"
                       alt=""
                     />
@@ -292,7 +292,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-facebook-messenger.svg"
                       alt=""
                     />
@@ -304,7 +304,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
                       alt=""
                     />
@@ -316,7 +316,7 @@ const Navbar = ({ open }) => {
                 <Link>
                   <div className="py-2">
                     <img
-                      className="w-6 m-auto"
+                      className="w-7 m-auto"
                       src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
                       alt=""
                     />

@@ -43,20 +43,6 @@ input[type="number"] {
   animation: marquee 70s linear infinite;
 }
 
-/* .tab:focus {
-  outline: none;
-}
-.tab-content {
-  color: #333;
-}
-.tab.react-tabs__tab--selected .tab-content {
-  color: #ffff00;
-  background-color: black;
-}
-.tab[aria-selected="true"] {
-  border: none;
-} */
-
 .tab-content {
   color: black;
 }

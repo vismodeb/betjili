@@ -1,25 +1,3 @@
-// import { Outlet } from "react-router-dom";
-// import Footer from "../components/shared/footer/footer";
-// import Navbar from "../components/shared/navbar/Navbar";
-// import SidebarMenu from "../components/shared/sidebarMenu/SidebarMenu";
-
-// const MainLayout = () => {
-//   return (
-//     <div className="flex">
-//       {/* Start Left Menu */}
-//       <SidebarMenu />
-//       {/* End Left Menu */}
-//       <div className="flex-1 h-screen ml-14">
-//         <Navbar />
-//         <Outlet />
-//         <Footer />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MainLayout;
-
 import { Outlet } from "react-router-dom";
 import Footer from "../components/shared/footer/footer";
 import Navbar from "../components/shared/navbar/Navbar";

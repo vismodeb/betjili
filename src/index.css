@@ -43,9 +43,9 @@ input[type="number"] {
   animation: marquee 70s linear infinite;
 }
 
-.tab-content {
+/* .tab-content {
   color: black;
-}
+} */
 .tab-image {
   filter: brightness(0);
 }
@@ -68,4 +68,8 @@ input[type="number"] {
 }
 .tab[aria-selected="true"] {
   border: none;
+}
+/* CSS for yellow filter */
+.filter-yellow {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(79%) saturate(2943%) hue-rotate(7deg) brightness(108%) contrast(103%);
 }

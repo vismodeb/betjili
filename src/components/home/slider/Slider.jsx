@@ -12,7 +12,6 @@ const Slider = () => {
         </p>
       </div>
       <Swiper
-        slidesPerView={3}
         spaceBetween={10}
         autoplay={{
           delay: 2900,
@@ -23,6 +22,14 @@ const Slider = () => {
         }}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
+        breakpoints={{
+          640: { // for mobile devices (width up to 640px)
+            slidesPerView: 1,
+          },
+          1024: { // for desktop devices (width from 1024px and above)
+            slidesPerView: 3,
+          },
+        }}
       >
         <SwiperSlide>
           <img

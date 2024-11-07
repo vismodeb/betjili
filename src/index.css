@@ -43,6 +43,13 @@ input[type="number"] {
   animation: marquee 70s linear infinite;
 }
 
+.banner-slider {
+  position: relative;
+}
+
+
+
+
 /* .tab-content {
   color: black;
 } */
@@ -71,5 +78,6 @@ input[type="number"] {
 }
 /* CSS for yellow filter */
 .filter-yellow {
-  filter: brightness(0) saturate(100%) invert(82%) sepia(79%) saturate(2943%) hue-rotate(7deg) brightness(108%) contrast(103%);
+  filter: brightness(0) saturate(100%) invert(82%) sepia(79%) saturate(2943%)
+    hue-rotate(7deg) brightness(108%) contrast(103%);
 }

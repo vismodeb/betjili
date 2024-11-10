@@ -9,6 +9,7 @@ import { MdHome } from "react-icons/md";
 
 const Navbar = ({ open }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [submenuItems, setSubmenuItems] = useState(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -20,6 +21,178 @@ const Navbar = ({ open }) => {
 
   const openModal = (id) => {
     document.getElementById(id).showModal();
+  };
+
+  const menuItems = [
+    {
+      title: "স্পোর্ট",
+      value: "sport",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-sport.svg",
+    },
+    {
+      title: "লাইভ ক্যাসিনো",
+      value: "live-casino",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-casino.svg",
+    },
+    {
+      title: "স্লট",
+      value: "slot",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-slot.svg",
+    },
+    {
+      title: "টেবিল",
+      value: "table",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-table.svg",
+    },
+    {
+      title: "ক্রাশ",
+      value: "crash",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-crash.svg",
+    },
+    {
+      title: "লটারি",
+      value: "lottery",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "ফিশিং",
+      value: "fishing",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg",
+    },
+    {
+      title: "আর্কেড",
+      value: "arcade",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-arcade.svg",
+    },
+    {
+      title: "মোরগ লড়াই",
+      value: "cockfighting",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg",
+    },
+  ];
+
+  const submenus = [
+    {
+      title: "CRICKET",
+      menu: "sport",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg",
+    },
+    {
+      title: "SBO",
+      menu: "sport",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg",
+    },
+    {
+      title: "Sportsbook",
+      menu: "sport",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "Horse",
+      menu: "sport",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "CMD",
+      menu: "sport",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "EVO",
+      menu: "live-casino",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "Sexy",
+      menu: "live-casino",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "PP",
+      menu: "live-casino",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "JILI",
+      menu: "slot",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "PG",
+      menu: "slot",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "PP",
+      menu: "slot",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "SG",
+      menu: "slot",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "SPRIBE",
+      menu: "table",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "MONOPOLI",
+      menu: "table",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+    {
+      title: "WORLDMATCH",
+      menu: "table",
+      route: "/",
+      image:
+        "https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg",
+    },
+  ];
+
+  const handleSetSubmenu = (value) => {
+    const items = submenus.filter((submenuItem) => submenuItem.menu === value);
+
+    // Set the submenu items to the newly selected menu's items only
+    setSubmenuItems(items);
   };
 
   return (
@@ -73,270 +246,194 @@ const Navbar = ({ open }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 w-full h-screen overflow-y-auto backdrop-blur bg-black/40 z-30 md:hidden transform transition-transform duration-500 ${
+        className={`fixed inset-0 w-full h-screen flex justify-start overflow-y-auto backdrop-blur bg-black/40 z-30 md:hidden transform transition-transform duration-500 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex justify-between">
-          <div className="m-2 mb-6 mt-6 w-3/5">
-            <div className="border-2 border-[#2a2a2a] rounded-lg">
-              <div className="flex items-center bg-[#242424] rounded-tl-lg rounded-tr-lg">
-                <img
-                  className="w-24"
-                  src="https://img.m156b.com/mb/h5/assets/images/dark/animation/head-coin.png?v=1730260800861"
-                  alt=""
-                />
-                <p className="text-sm font-semibold text-yellow-300">
-                  হাই স্বাগতম
-                </p>
+          <div className="flex items-center gap-2">
+            <div className="m-2 mb-6 mt-6 w-3/5">
+              <div className="border-2 border-[#2a2a2a] rounded-lg">
+                <div className="flex items-center bg-[#242424] rounded-tl-lg rounded-tr-lg">
+                  <img
+                    className="w-24"
+                    src="https://img.m156b.com/mb/h5/assets/images/dark/animation/head-coin.png?v=1730260800861"
+                    alt=""
+                  />
+                  <p className="text-sm font-semibold text-yellow-300">
+                    হাই স্বাগতম
+                  </p>
+                </div>
+                <div className="bg-yellow-300 py-4 px-4 flex gap-2 justify-between rounded-br-lg rounded-bl-lg">
+                  <div className="flex items-center gap-1">
+                    <HiOutlineLogin />
+                    <p className="text-sm font-medium text-black">লগ ইন</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <BiUserPlus />
+                    <p className="text-sm font-medium text-black">সাইন আপ</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-yellow-300 py-4 px-4 flex gap-2 justify-between rounded-br-lg rounded-bl-lg">
-                <div className="flex items-center gap-1">
-                  <HiOutlineLogin />
-                  <p className="text-sm font-medium text-black">লগ ইন</p>
-                </div>
-                <div className="flex items-center gap-1">
-                  <BiUserPlus />
-                  <p className="text-sm font-medium text-black">সাইন আপ</p>
+              <div className="mt-2 grid grid-cols-3 gap-x-2 gap-y-[10px]">
+                {menuItems?.map((item) => (
+                  <div
+                    onClick={() => handleSetSubmenu(item.value)}
+                    key={item}
+                    className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg"
+                  >
+                    <img className="w-7 m-auto" src={item.image} alt="" />
+                    <p className="mt-1 text-white text-[10px] font-medium text-center">
+                      {item.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
+                <div className="grid grid-cols-3 items-center">
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-promotion.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        প্রমোশন
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-download.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        ডাউনলোড
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-affiliate.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        অ্যাফিলিয়েট
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-ambassador.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        অ্যাম্বাসেডর
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               </div>
-            </div>
-            <div className="mt-2 grid grid-cols-3 gap-x-2 gap-y-[10px]">
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-sport.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    স্পোর্ট
-                  </p>
+              <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
+                <div className="grid grid-cols-3 items-center">
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-telegram.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        Telegram
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-whatsapp.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        WhatsApp
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-facebook-messenger.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        Facebook Messenger
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        মার্কেটিং ইমেইল
+                      </p>
+                    </div>
+                  </Link>
+                  <Link>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        গ্রাহক সাহায্য ইমেল
+                      </p>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-casino.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 whitespace-nowrap text-white text-[10px] font-medium text-center">
-                    লাইভ ক্যাসিনো
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-slot.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    স্লট
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-table.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    টেবিল
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-crash.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    ক্রাশ
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-lottery.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    লটারি
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-fish.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    ফিশিং
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-arcade.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    আর্কেড
-                  </p>
-                </div>
-              </Link>
-              <Link>
-                <div className="py-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-                  <img
-                    className="w-7 m-auto"
-                    src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-cockfighting.svg"
-                    alt=""
-                  />
-                  <p className="mt-1 text-white text-[10px] font-medium text-center">
-                    মোরগ লড়াই
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-              <div className="grid grid-cols-3 items-center">
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-promotion.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      প্রমোশন
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-download.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      ডাউনলোড
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-affiliate.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      অ্যাফিলিয়েট
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-ambassador.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      অ্যাম্বাসেডর
-                    </p>
-                  </div>
-                </Link>
               </div>
-            </div>
-            <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
-              <div className="grid grid-cols-3 items-center">
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-telegram.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      Telegram
-                    </p>
+              <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg grid grid-cols-2">
+                <Link to={"/"}>
+                  <div className="flex items-center gap-1 py-4 px-2">
+                    <MdHome size={30} className="text-yellow-400" />
+                    <p className="text-xs font-medium text-white">হোম</p>
                   </div>
                 </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-whatsapp.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      WhatsApp
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-facebook-messenger.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      Facebook Messenger
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      মার্কেটিং ইমেইল
-                    </p>
-                  </div>
-                </Link>
-                <Link>
-                  <div className="py-2">
-                    <img
-                      className="w-7 m-auto"
-                      src="https://img.m156b.com/mb/h5/assets/images/dark/menu/icon-email.svg"
-                      alt=""
-                    />
-                    <p className="mt-1 text-white text-[10px] font-medium text-center">
-                      গ্রাহক সাহায্য ইমেল
-                    </p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg grid grid-cols-2">
-              <Link to={"/"}>
                 <div className="flex items-center gap-1 py-4 px-2">
-                  <MdHome size={30} className="text-yellow-400" />
-                  <p className="text-xs font-medium text-white">হোম</p>
+                  <HiOutlineLogin size={30} className="text-yellow-400" />
+                  <p className="text-xs font-medium text-white">লগ ইন</p>
                 </div>
-              </Link>
-              <div className="flex items-center gap-1 py-4 px-2">
-                <HiOutlineLogin size={30} className="text-yellow-400" />
-                <p className="text-xs font-medium text-white">লগ ইন</p>
+              </div>
+            </div>
+            <div className="w-28 mt-2 bg-[#242424] border-2 border-[#2a2a2a] rounded-lg">
+              <div className="flex flex-col items-centern justify-center items-center">
+                {submenuItems?.map((submenuItem) => (
+                  <Link key={submenuItem.menu}>
+                    <div className="py-2">
+                      <img
+                        className="w-7 m-auto"
+                        src={submenuItem.image}
+                        alt=""
+                      />
+                      <p className="mt-1 text-white text-[10px] font-medium text-center">
+                        {submenuItem.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

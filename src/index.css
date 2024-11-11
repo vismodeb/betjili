@@ -69,3 +69,11 @@ input[type="number"] {
 .tab[aria-selected="true"] {
   border: none;
 }
+
+.filter-yellow {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(93%) saturate(737%)
+    hue-rotate(1deg) brightness(107%) contrast(104%);
+}
+.text-yellow {
+  color: #ffd700; /* অথবা আপনার পছন্দের ইয়েলো রঙ */
+}
